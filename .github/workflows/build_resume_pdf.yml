@@ -35,10 +35,8 @@ jobs:
           sleep 3
 
       - name: Generate PDF
-        env:
-          CHROME_BIN: ${{ env.CHROME_PATH }}
         run: |
-          "$CHROME_BIN" \
+          google-chrome \
             --headless=old \
             --no-sandbox \
             --disable-gpu \
