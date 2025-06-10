@@ -43,9 +43,12 @@ jobs:
             --disable-dev-shm-usage \
             --no-zygote --no-first-run \
             --disable-features=Translate,DBus \
-            --timeout=8000 \
+            --run-all-compositor-stages-before-draw \
+            --timeout=30000 \
+            --no-pdf-header-footer \
             --print-to-pdf=resume.pdf \
             http://localhost:8000/index.html
+
 
       - name: Stop local server
         run: kill $(cat server.pid)
