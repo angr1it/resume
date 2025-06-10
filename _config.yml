@@ -123,8 +123,11 @@ sass:
   sass_dir: _sass
   style: compressed
 
+include:
+  - assets/fonts
+
 plugins:
  - jekyll-seo-tag
 
-relative_links:
-  enabled: true
+# relative_links:
+#   enabled: true

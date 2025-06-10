@@ -2,7 +2,7 @@ name: Build Resume PDF
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,29 +11,56 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Клонируем репозиторий
       - uses: actions/checkout@v3
+
+      # 2. Ruby + кеш bundler
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1"
+          ruby-version: '3.1'
           bundler-cache: true
+
+      # 3. Ставим Google Chrome (stable)
+      - uses: browser-actions/setup-chrome@v1   # -> $CHROME_BIN
+        with:
+          chrome-version: stable
+          install-dependencies: true   # ставит libgtk, libnss3 и др.
+
+      # 4. Генерируем статический сайт
       - name: Build site
         run: bundle exec jekyll build
-      - name: Install wkhtmltopdf
-        run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+
+      # 5. Поднимаем локальный HTTP-сервер
       - name: Start local server
         run: |
           python3 -m http.server 8000 --directory _site &
           echo $! > server.pid
-          sleep 2
+          sleep 3   # даём сайту подняться
+
+      # 6. Рендерим PDF через Headless Chrome
       - name: Generate PDF
-        run: wkhtmltopdf http://localhost:8000/index.html resume.pdf
+        env:
+          CHROME_BIN: ${{ env.CHROME_BIN || 'google-chrome' }}  # fallback
+        run: |
+          "$CHROME_BIN" \
+            --headless=new \  # актуальный режим, старый убрали в Chrome 132 :contentReference[oaicite:4]{index=4}
+            --disable-gpu \
+            --no-sandbox \
+            --timeout=7000 \
+            --print-to-pdf=resume.pdf \
+            http://localhost:8000/index.html
+
+      # 7. Останавливаем сервер
       - name: Stop local server
         run: kill $(cat server.pid)
+
+      # 8. Коммитим PDF обратно в репозиторий
       - name: Commit PDF
         uses: EndBug/add-and-commit@v9
         with:
-          add: "resume.pdf"
-          message: "chore: update resume.pdf"
+          add: resume.pdf
+          message: 'chore: update resume.pdf'
           default_author: github_actions
           push: true
