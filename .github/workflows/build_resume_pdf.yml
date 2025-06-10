@@ -1,5 +1,4 @@
 name: Build Resume PDF
-
 on:
   push:
     branches: [main]
@@ -11,52 +10,48 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      # 1. Клонируем репозиторий
       - uses: actions/checkout@v3
 
-      # 2. Ruby + кеш bundler
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
 
-      # 3. Ставим Google Chrome (stable)
-      - uses: browser-actions/setup-chrome@v1   # -> $CHROME_BIN
+      - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
-          install-dependencies: true   # ставит libgtk, libnss3 и др.
+          install-dependencies: true
 
-      # 4. Генерируем статический сайт
       - name: Build site
         run: bundle exec jekyll build
 
-      # 5. Поднимаем локальный HTTP-сервер
       - name: Start local server
         run: |
           python3 -m http.server 8000 --directory _site &
           echo $! > server.pid
-          sleep 3   # даём сайту подняться
+          sleep 3
 
-      # 6. Рендерим PDF через Headless Chrome
       - name: Generate PDF
         env:
-          CHROME_BIN: ${{ env.CHROME_BIN || 'google-chrome' }}  # fallback
+          CHROME_BIN: ${{ env.CHROME_PATH }}
         run: |
           "$CHROME_BIN" \
-            --headless=new \  # актуальный режим, старый убрали в Chrome 132 :contentReference[oaicite:4]{index=4}
-            --disable-gpu \
+            --headless=old \
             --no-sandbox \
-            --timeout=7000 \
+            --disable-gpu \
+            --disable-dev-shm-usage \
+            --no-zygote --no-first-run \
+            --disable-features=Translate,DBus \
+            --timeout=8000 \
             --print-to-pdf=resume.pdf \
             http://localhost:8000/index.html
 
-      # 7. Останавливаем сервер
       - name: Stop local server
         run: kill $(cat server.pid)
 
-      # 8. Коммитим PDF обратно в репозиторий
       - name: Commit PDF
         uses: EndBug/add-and-commit@v9
         with:
