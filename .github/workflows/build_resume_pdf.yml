@@ -37,7 +37,7 @@ jobs:
       - name: Generate PDF
         run: |
           google-chrome \
-            --headless=old \
+            --headless=new \
             --no-sandbox \
             --disable-gpu \
             --disable-dev-shm-usage \
