@@ -1,0 +1,29 @@
+name: Build Resume PDF
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+      - name: Build site
+        run: bundle exec jekyll build
+      - name: Install wkhtmltopdf
+        run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+      - name: Generate PDF
+        run: wkhtmltopdf _site/index.html resume.pdf
+      - name: Commit PDF
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "resume.pdf"
+          message: "chore: update resume.pdf"
+          default_author: github_actions
+          push: true
