@@ -125,7 +125,3 @@ sass:
 
 plugins:
  - jekyll-seo-tag
-
-
-relative_links:
-  enabled: true
