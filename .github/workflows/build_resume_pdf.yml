@@ -19,7 +19,7 @@ jobs:
       - name: Install wkhtmltopdf
         run: sudo apt-get update && sudo apt-get install -y wkhtmltopdf
       - name: Generate PDF
-        run: wkhtmltopdf _site/index.html resume.pdf
+        run: wkhtmltopdf --enable-local-file-access _site/index.html resume.pdf
       - name: Commit PDF
         uses: EndBug/add-and-commit@v9
         with:
