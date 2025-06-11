@@ -1,15 +1,10 @@
-/* assets/css/print.css */
-
 @media print {
-    @page { margin: 0; }
-    body { margin: 0; }
-  
     img, svg, .fa-icon {
       display: block !important;
       visibility: visible !important;
       opacity: 1 !important;
     }
-
+  
     header, footer, nav, .screen-only {
       display: none !important;
     }
@@ -17,6 +12,9 @@
     @page {
       size: A4;
       margin: 1cm;
+    }
+    body {
+      margin: 0;
     }
   }
   
