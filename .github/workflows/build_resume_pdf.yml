@@ -17,7 +17,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: "3.1"
           bundler-cache: true
 
       - uses: browser-actions/setup-chrome@v1
@@ -38,17 +38,16 @@ jobs:
         run: |
           google-chrome \
             --headless=new \
-            --no-sandbox \
-            --disable-gpu \
-            --disable-dev-shm-usage \
-            --no-zygote --no-first-run \
+            --no-sandbox --disable-gpu \
+            --disable-dev-shm-usage --no-zygote --no-first-run \
             --disable-features=Translate,DBus \
-            --run-all-compositor-stages-before-draw \
-            --timeout=30000 \
-            --no-pdf-header-footer \
+            --force-device-scale-factor=1 \
+            --css-print-mode=print \
             --print-to-pdf=resume.pdf \
+            --no-pdf-header-footer \
+            --run-all-compositor-stages-before-draw \
+            --timeout=10000 \
             http://localhost:8000/index.html
-
 
       - name: Stop local server
         run: kill $(cat server.pid)
@@ -57,6 +56,6 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: resume.pdf
-          message: 'chore: update resume.pdf'
+          message: "chore: update resume.pdf"
           default_author: github_actions
           push: true
