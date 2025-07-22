@@ -1,122 +1,123 @@
-# Site
+# Site settings
 repository: sproogen/resume-theme
 favicon: images/favicon.ico
-
-# Content configuration version
 version: 2
+darkmode: true
 
-# Personal info
-name: Andrew Harris
-title: Senior Network System Administrator
-email: brett.h@email.co.uk
-website: www.github.com/sproogen/resume-theme
-
-# Dark Mode (true/false/never)
-darkmode: false
+# Contact information
+name: "Andrei Gritsenko"
+title: "ML Engineer & Python Backend Developer"
+email: "andgr1it@gmail.com"
+phone: "+995 (591) 011380"
+website: "https://angr1it.github.io"
+location: "Tbilisi, Georgia"
+description: "LLM systems & scalable backend expert with 6+ years in AI/ML and Python infrastructure"
 
 # Social links
-twitter_username: facespics
-github_username:  sproogen
-# stackoverflow_username: "00000001"
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-instagram_username: jameswgrant
-linkedin_username: jameswgrant
-# xing_username: jekyll
-# pinterest_username: jekyll
-youtube_username: globalmtb
-# googleplus_username: +jekyll
-# orcid_username: 0000-0000-0000-0000
+linkedin_username: "andrei-gritsenko-5a315332b"
+github_username: "angr1it"
 
-# Additional icon links
 additional_links:
-- title: itsgoingto.be
-  icon: fas fa-globe
-  url: https://www.itsgoingto.be
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
-#   url: Link url (eg. https://google.com)
+# - title: GitHub
+#   icon: fab fa-github
+#   url: https://github.com/angr1it
+- title: Telegram
+  icon: fab fa-telegram
+  url: https://t.me/andregrit
 
-# Google Analytics and Tag Manager
-# Using more than one of these may cause issues with reporting
-# gtm: "GTM-0000000"
-# gtag: "UA-00000000-0"
-# google_analytics: "UA-00000000-0"
-
-# About Section
-# about_title: About Me
+# About section
+about_title: "About Me"
 about_profile_image: images/profile.jpg
-about_content: | # this will include new lines to allow paragraphs
-  Hi, my name's Brett and I'm a senior network system administrator. As well as administrating systems I also have experience making software and web apps. I have worked at a number of companies gaining teamwork and leadership skills.
+about_content: |
+  ML engineer with a strong backend background, specializing in production-grade AI agents and LLM systems. 
+  Experienced with model fine-tuning (LoRA, PEFT), RAG architecture, and LangChain-based applications. 
+  Skilled in deploying scalable microservices with FastAPI, Celery, PostgreSQL, Docker, and Kubernetes. 
+  Proficient in both classical ML (scikit-learn, CatBoost, XGBoost) and modern LLM pipelines (OpenAI, RAG, Tool Use).
+  Focused on robust architecture, observability, and clean code in real-world environments.
 
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
-
+# Main content
 content:
-  - title: Projects # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: top-middle
-        title: Super awesome project
-        link: github.com/sproogen
-        # link_text: Project Website
-        additional_links:
-          - title:  sproogen/modern-resume-theme
-            icon: fab fa-github
-            url: github.com/sproogen/modern-resume-theme
-          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
-          #   icon: fab fa-github
-          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
-        description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+- title: "Work Experience"
+  layout: list
+  content:
+  - layout: top
+    title: "Rainex.io"
+    sub_title: "Python Backend / ML Engineer"
+    caption: "Feb 2024 – Present"
+    description: |
+      - Designed and implemented a lead generation platform for the B2C segment: built a recommendation system using embeddings, LLMs (GPT-4), and Retrieval-Augmented Generation (RAG) techniques. Improved recommendation accuracy by 30% (based on internal metrics).
+      - Developed RAG pipelines (Weaviate, LangChain, OpenAI API) — boosted relevance by 25%, reduced latency to 450 ms.
+      - Created LLM agents for chat and recommendation tasks (LangChain Agents, Tool calling, gpt-4o-mini) — +18% NDCG.
+      - Implemented preprocessing and vectorization pipelines — 4× faster unstructured data analysis.
+      - Designed high-load backend services (FastAPI, Celery, PostgreSQL, MongoDB); built crawler for 50K+ sources.
+      - Scaled Celery to 300+ req/s with retries and monitoring (Flower, Sentry).
+      - Deployed services via GitLab CI to Kubernetes with 99.9% SLA.
+      - Fine-tuned BERT models — reduced OpenAI API calls and inference cost by 35%.
+      - Built internal tools for MCP agent workflows and an embedding-based discovery layer for A2A orchestration.
+      - Led a backend team (3 engineers): architecture, planning, code reviews.
 
-  - title: Experience # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: The Boring Company
-        link: boringcompany.com
-        # link_text: boringcompany.com
-        sub_title: Senior Network System Administrator
-        caption: November 2017 - Present
-        quote: >
-          Solving 21st century problems by diging holes and making game changing products like the *not a flamethrower*
-        description: | # this will include new lines to allow paragraphs
-            Every company needs its networks properly administered and The Boring Compay is no exception. Digging holes is hard and I play my part making sure the whole company stays connected. I lead a team of 5 people and enjoy driving the company to try new technologies.
+  - layout: top
+    title: "Consyst-OC"
+    sub_title: "Backend Engineer"
+    caption: "Apr 2019 – Feb 2024"
+    link: "https://www.consyst-oc.ru/"
+    description: |
+      - Developed ETL pipelines processing tens of thousands of records daily.
+      - Designed and integrated REST APIs and microservices for scalable systems.
+      - Built database architectures and optimized SQL queries — up to 10x speedup.
+      - Created Python and Groovy libraries extending Apache NiFi capabilities.
+      - Automated business processes and complex data workflows using Python, Groovy, Apache NiFi, and SQL.
 
-  - title: Education # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: Harvard University
-        caption: 2010 - 2013
-        sub_title: BSc Computer Science
-        quote: >
-          Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
-        description: | # this will include new lines to allow paragraphs
-          During my time at Harvard I learnt most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance.
+- title: "Education"
+  layout: list
+  content:
+  - layout: left
+    title: "Moscow Institute of Physics and Technology (MIPT)"
+    sub_title: "Master's, Data Science"
+    caption: "2025"
+  - layout: left
+    title: "Moscow State University (MSU)"
+    sub_title: "Bachelor’s in Applied Mathematics and Physics"
+    caption: "2019"
 
-          I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
+- title: "Certifications"
+  layout: list
+  content:
+  - layout: top
+    title: "Asynchronous programming in Python (async, asyncio)"
+    caption: "2023, practicum.yandex"
+  - layout: top
+    title: "Deep Learning — School of Deep Learning, FPMI MIPT"
+    caption: "2023, Stepik"
+  - layout: top
+    title: "Advanced machine learning models"
+    caption: "2024, MTPT"
 
-  - title: A Little More About Me
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-      - Rock climbing
-      - Gaming
-      - Knitting
-      - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
+- title: "Skills"
+  layout: text
+  content: |
+    **Languages & Tools:** Python, SQL, Git, Bash, Makefile, Poetry  
+    **Backend & APIs:** FastAPI, SQLAlchemy, REST API, gRPC, OOP, TDD, Unit Testing  
+    **Databases:** PostgreSQL, MongoDB, Redis, Weaviate, ChromaDB  
+    **ML & AI:** PyTorch, scikit-learn, pandas, numpy, CatBoost, XGBoost, LightGBM, LoRA, PEFT, llama.cpp, unsloth  
+    **LLM & NLP:** OpenAI, GPT-4, GPT-4o-mini, LangChain, RAG, Tool Use, Agents, Prompt Engineering  
+    **Infrastructure:** Docker, Kubernetes, GitLab CI/CD, Flower, Sentry, Kafka, Airflow, Celery  
+    **Other:** Apache NiFi, Data Science, Data Engineering, MLflow
 
-      Look at this cool image  
-      ![Trees](images/landscape-trees.jpg "Trees")
+- title: "Languages"
+  layout: text
+  content: |
+    - Russian — Native  
+    - English — B2 (Upper-Intermediate)
 
-# Footer
-footer_show_references: true
-# references_title: References on request (Override references text)
+- title: "Other Information"
+  layout: text
+  content: |
+    - Citizenship: Russia  
+    - Location: Tbilisi, Georgia  
+    - Relocation: Ready
 
-# Build settings
+# Footer and build settings
 remote_theme: sproogen/resume-theme
 
 sass:
@@ -124,10 +125,10 @@ sass:
   style: compressed
 
 include:
-  - assets/fonts
+- assets/fonts
 
 plugins:
- - jekyll-seo-tag
+- jekyll-seo-tag
 
 relative_links:
   enabled: true

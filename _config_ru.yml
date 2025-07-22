@@ -1,0 +1,118 @@
+# Site settings
+repository: sproogen/resume-theme
+favicon: images/favicon.ico
+version: 2
+
+darkmode: true
+
+# Контактная информация
+name: "Гриценко Андрей"
+title: "Senior Backend Developer | AI Agent Developer | ML"
+email: "andgr1it@gmail.com"
+phone: "+995 (591) 011380"
+location: "Тбилиси, Грузия"
+description: "Разработчик AI-агентов и backend-инфраструктуры"
+
+# Соцсети (по желанию)
+linkedin_username: "andrei-gritsenko-5a315332b"
+github_username: "angr1it"
+
+additional_links:
+- title: github pages
+  icon: fas fa-globe
+  url: https://angr1it.github.com
+
+# About section
+about_title: "О себе"
+about_profile_image: images/profile.jpg
+about_content: |
+  Разработчик AI-агентов и backend-инженер с 6+ годами опыта.
+  Специализируюсь на создании интеллектуальных агентов с использованием LLM, Langchain и RAG.
+  Фокус — автоматизация задач, взаимодействие агентов и интеграция в бизнес-процессы.
+  Обладаю опытом построения устойчивой инфраструктуры: CI/CD, Docker, Kubernetes, PostgreSQL, FastAPI и микросервисов.
+  В свободное время изучаю машинное обучение, читаю и путешествую.
+
+# Основной контент
+content:
+- title: "Опыт работы"
+  layout: list
+  content:
+  - layout: top
+    title: "Rainex.io"
+    sub_title: "AI Agent Developer / Backend"
+    caption: "Февраль 2024 — настоящее время"
+    description: |
+      - Разработал прототип сервиса лидогенерации с AI-агентами, довел до production
+      - Создал AI-агентов для рекомендаций и диалогов — точность выше на 25%
+      - Реализовал RAG-систему, повысив релевантность ответов на 40%
+      - Разработал масштабируемый краулер (50,000+ источников) с очередями задач
+      - Настроил CI/CD и деплой в Kubernetes — время вывода фич снизилось на 3 дня
+      - Выступал техлидом в команде из 3 инженеров, гарантировал стабильные релизы
+      - Разработка и проекторивание API и микросервисов с отказоустойчивостью
+
+  - layout: top
+    title: "Консист-ОС, ЗАО"
+    sub_title: "Software Developer"
+    caption: "Апрель 2019 — Февраль 2024"
+    link: "https://www.consyst-oc.ru/"
+    description: |
+      - Разработка ETL пайплайнов (30K+ записей/день), автоматизация рутины на 90%
+      - Оптимизация SQL-запросов (в некоторых случаях ускорение до 10x)
+      - Внедрение REST API и микросервисов с отказоустойчивостью
+      - Автоматизация 5+ процессов через Apache NiFi и Python
+      - Расширение NiFi с использованием Python и Groovy
+
+- title: "Навыки"
+  layout: text
+  content: |
+    - Python, SQL, PostgreSQL, MongoDB, Redis, Weaviate, ChromaDB
+    - FastAPI, SQLAlchemy, REST API, gRPC  
+    - PyTorch, Scikit-learn, pandas, Numpy
+    - Langchain, GPT, RAG, NLP, AI Agents, Prompt Engineering, RAPTOR, Tool Use
+    - Catboost, XGBoost, Random Forest, SVM, KNN, Logistic Regression
+    - Docker, Kubernetes, CI/CD, Kafka, Airflow, Celery
+    - ООП, Unit Testing, TDD
+
+- title: "Образование"
+  layout: list
+  content:
+  - layout: left
+    title: "МФТИ"
+    sub_title: "Магистр, Data Science"
+    caption: "2025, Москва"
+  - layout: left
+    title: "МГУ им. Ломоносова"
+    sub_title: "Факультет физики, Прикладная математика и физика"
+    caption: "2019, Москва"
+
+- title: "Сертификаты"
+  layout: list
+  content:
+  - layout: top
+    title: "Asynchronous programming in Python"
+    caption: "2022, practicum.yandex"
+  - layout: top
+    title: "Deep Learning"
+    caption: "2023, stepik / School of Deep Learning"
+
+- title: "Языки"
+  layout: text
+  content: |
+    - Русский — родной  
+    - Английский — B2 (Upper-Intermediate)
+
+# Footer and build settings
+remote_theme: sproogen/resume-theme
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+include:
+- assets/fonts
+
+plugins:
+- jekyll-seo-tag
+
+relative_links:
+  enabled: true
