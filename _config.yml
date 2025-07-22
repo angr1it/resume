@@ -52,7 +52,7 @@ content:
       - Designed high-load backend services (FastAPI, Celery, PostgreSQL, MongoDB); built crawler for 50K+ sources.
       - Scaled Celery to 300+ req/s with retries and monitoring (Flower, Sentry).
       - Deployed services via GitLab CI to Kubernetes with 99.9% SLA.
-      - Fine-tuned BERT models — reduced OpenAI API calls and inference cost by 35%.
+      - Fine-tuned BERT models for classification to offload requests from OpenAI API — reduced inference cost by 20%.
       - Built internal tools for MCP agent workflows and an embedding-based discovery layer for A2A orchestration.
       - Led a backend team (3 engineers): architecture, planning, code reviews.
 
